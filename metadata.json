@@ -1,0 +1,6 @@
+{
+  "name": "Gmail Reward App",
+  "description": "Secure reward engine with micro-tasks, referral marketing, anti-disposable checks, automated fraud detection, and transactional admin controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
