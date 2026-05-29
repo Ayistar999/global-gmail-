@@ -1,32 +1,32 @@
 name: Android APK Build
 
 on:
-  push:
-    branches:
-      - main
+push:
+branches:
+- main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+build:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
+  - name: Set up JDK
+    uses: actions/setup-java@v4
+    with:
+      distribution: temurin
+      java-version: 17
 
-      - name: Grant execute permission
-        run: chmod +x gradlew
+  - name: Install Gradle
+    uses: gradle/actions/setup-gradle@v3
 
-      - name: Build APK
-        run: ./gradlew assembleDebug
+  - name: Build APK
+    run: gradle assembleDebug
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+  - name: Upload APK
+    uses: actions/upload-artifact@v4
+    with:
+      name: app-debug
+      path: app/build/outputs/apk/debug/*.apk
